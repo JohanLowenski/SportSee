@@ -1,0 +1,27 @@
+.homepage {
+  .header {
+    background-color: black;
+    .header__logo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .logo {
+        width: 178px;
+        height: 60px;
+      }
+      .header__nav {
+        display: flex;
+        list-style-type: none;
+        color: #fff;
+        font-size: 24px;
+        .header__nav-item {
+          padding-right: 2rem;
+        }
+      }
+    }
+  }
+  .header__aside {
+    background-color: black;
+    transform: rotate(90deg);
+  }
+}
