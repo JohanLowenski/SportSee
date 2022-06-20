@@ -1,5 +1,8 @@
 .homepage {
+  width: 1440px;
+  height: 91px;
   .header {
+    position: relative;
     background-color: black;
     .header__logo {
       display: flex;
@@ -8,20 +11,91 @@
       .logo {
         width: 178px;
         height: 60px;
+        margin-left: 29px;
       }
       .header__nav {
         display: flex;
         list-style-type: none;
         color: #fff;
         font-size: 24px;
+        margin-right: 87px;
+        font-weight: 500;
         .header__nav-item {
-          padding-right: 2rem;
+          padding-right: 204px;
         }
       }
     }
   }
   .header__aside {
+    position: relative;
     background-color: black;
     transform: rotate(90deg);
+    top: 28rem;
+    right: 453px;
+    width: 1024px;
+    height: 117px;
+    .header__aside-item {
+      display: flex;
+      justify-content: center;
+      .header__aside-img {
+        transform: rotate(-90deg);
+        margin-right: 20px;
+        margin-top: 30px;
+      }
+    }
+    .header__aside-text {
+      transform: rotate(180deg);
+      color: #fff;
+      margin-top: -42px;
+      height: 24px;
+      padding-left: 59px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+  .homepage__section {
+    width: 835px;
+    height: 779px;
+    border: solid 4px red;
+    margin-left: 224px;
+  }
+  .section_alimentation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 5px;
+    margin-right: 4rem;
+    margin-top: -42rem;
+
+    .calories,
+    .protein,
+    .carbohydrate,
+    .lipid {
+      background-color: #fbfbfb;
+      width: 258px;
+      height: 124px;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .section_img {
+      // background-color: #fbfbfb;
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      z-index: 4;
+      top: 32px;
+      left: 32px;
+      right: 32px;
+    }
+    .section_img-end {
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      z-index: 4;
+      top: 32px;
+      left: 32px;
+      right: 32px;
+    }
   }
 }
