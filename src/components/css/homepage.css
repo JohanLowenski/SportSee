@@ -55,45 +55,39 @@
   font-weight: 500;
 }
 .homepage .homepage__section {
-  width: 835px;
+  width: 1126px;
   height: 779px;
-  border: solid 4px red;
-  margin-left: 224px;
+  margin: 0px 0px 0px 224px;
 }
-.homepage .section_alimentation {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  border-radius: 5px;
-  margin-right: 4rem;
-  margin-top: -42rem;
+.homepage .homepage__section .homepage__section-item h1 {
+  font-size: 48px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
-.homepage .section_alimentation .calories,
-.homepage .section_alimentation .protein,
-.homepage .section_alimentation .carbohydrate,
-.homepage .section_alimentation .lipid {
+.homepage .homepage__section .homepage__section-item p {
+  font-size: 18px;
+}
+.homepage .homepage__section .activities {
   background-color: #fbfbfb;
-  width: 258px;
-  height: 124px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  margin-bottom: 1rem;
-  position: relative;
+  width: 835px;
+  height: 320px;
+  margin-top: 33px;
 }
-.homepage .section_alimentation .section_img {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  z-index: 4;
-  top: 32px;
-  left: 32px;
-  right: 32px;
+.homepage .homepage__section .performance {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 58px;
 }
-.homepage .section_alimentation .section_img-end {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  z-index: 4;
-  top: 32px;
-  left: 32px;
-  right: 32px;
+.homepage .homepage__section .performance .objective,
+.homepage .homepage__section .performance .radar,
+.homepage .homepage__section .performance .kpi {
+  background-color: #fbfbfb;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 258px;
+  height: 263px;
+  margin-right: 30px;
 }

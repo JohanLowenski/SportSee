@@ -1,17 +1,117 @@
 import React from "react";
 import "../css/homepage.css";
-// import { useParams } from "react-router-dom";
+import Alimentation from "../alimentation";
+// import { USER_MAIN_DATA,USER_ACTIVITY,USER_AVERAGE_SESSIONS,USER_PERFORMANCE } from "../../info";
 import Logo from "../../assets/logo.png";
 import Zen from "../../assets/zen.png";
 import Swim from "../../assets/swim.png";
 import Bike from "../../assets/bike.png";
 import Bodybuilding from "../../assets/bodybuilding.png";
-import Calories from "../../assets/calories-icon.png";
-import Protein from "../../assets/protein-icon.png";
-import Carbohydrate from "../../assets/carbs-icon.png";
-import Lipid from "../../assets/lipids-icon.png";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
+
 const Homepage = (props) => {
-  // const dataModel = {
+  const data = [
+    {
+      name: 1,
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: 2,
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
+    },
+    {
+      name: 3,
+      uv: 4000,
+      pv: 8800,
+      amt: 2290,
+    },
+    {
+      name: 4,
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
+    },
+    {
+      name: 5,
+      uv: 1890,
+      pv: 4800,
+      amt: 2181,
+    },
+    {
+      name: 6,
+      uv: 2390,
+      pv: 3800,
+      amt: 2500,
+    },
+    {
+      name: 7,
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
+    },
+    {
+      name: 8,
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
+    },
+    {
+      name: 9,
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
+    },
+    {
+      name: 10,
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
+    },
+  ];
+  const radar = [
+    {
+      subject: "Intensité",
+      A: 120,
+      B: 110,
+      fullMark: 150,
+    },
+    {
+      subject: "Vitesse",
+      A: 98,
+      B: 130,
+      fullMark: 150,
+    },
+    {
+      subject: "Force",
+      A: 86,
+      B: 130,
+      fullMark: 150,
+    },
+    {
+      subject: "Endurance",
+      A: 99,
+      B: 100,
+      fullMark: 150,
+    },
+    {
+      subject: "Energie",
+      A: 85,
+      B: 90,
+      fullMark: 150,
+    },
+    {
+      subject: "Cardio",
+      A: 65,
+      B: 85,
+      fullMark: 150,
+    },
+  ];
+  // const dataModel = {d
   //   id: "",
   //   userInfos: {
   //     firstName: "",
@@ -60,23 +160,48 @@ const Homepage = (props) => {
       </aside>
       <section className="homepage__section">
         <div className="homepage__section-item">
-          <h1 className="homepage__section-title">Bonjour</h1>
+          <h1>Bonjour ...</h1>
+          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        </div>
+        <div className="activities">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={835}
+              height={320}
+              data={data}
+              margin={{
+                top: 100,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis orientation="right" stroke="#9B9EAC" />
+              <Tooltip />
+              <Legend verticalAlign="top" />
+              <Bar dataKey="pv" fill="#282D30" barSize={7} />
+              <Bar dataKey="uv" fill="#E60000" barSize={7} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+        <div className="performance">
+          <div className="objective"></div>
+          <div className="radar">
+            <ResponsiveContainer width="100%" height="100%">
+              <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radar}>
+                <PolarGrid />
+                <PolarAngleAxis dataKey="subject" />
+                <PolarRadiusAxis />
+                <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+              </RadarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="kpi"></div>
         </div>
       </section>
-      <section className="section_alimentation">
-        <div className="calories">
-          <img className="section_img" src={Calories} alt="Logo" />
-        </div>
-        <div className="protein">
-          <img className="section_img" src={Protein} alt="Logo" />
-        </div>
-        <div className="carbohydrate">
-          <img className="section_img" src={Carbohydrate} alt="Logo" />
-        </div>
-        <div className="lipid">
-          <img className="section_img-end" src={Lipid} alt="Logo" />
-        </div>
-      </section>
+      <Alimentation />
     </div>
   );
 };
