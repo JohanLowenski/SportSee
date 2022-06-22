@@ -7,8 +7,22 @@ import Zen from "../../assets/zen.png";
 import Swim from "../../assets/swim.png";
 import Bike from "../../assets/bike.png";
 import Bodybuilding from "../../assets/bodybuilding.png";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+} from "recharts";
 
 const Homepage = (props) => {
   const data = [
@@ -68,6 +82,51 @@ const Homepage = (props) => {
     },
     {
       name: 10,
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
+    },
+  ];
+
+  const objective = [
+    {
+      name: "Page A",
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Page B",
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
+    },
+    {
+      name: "Page C",
+      uv: 2000,
+      pv: 9800,
+      amt: 2290,
+    },
+    {
+      name: "Page D",
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
+    },
+    {
+      name: "Page E",
+      uv: 1890,
+      pv: 4800,
+      amt: 2181,
+    },
+    {
+      name: "Page F",
+      uv: 2390,
+      pv: 3800,
+      amt: 2500,
+    },
+    {
+      name: "Page G",
       uv: 3490,
       pv: 4300,
       amt: 2100,
@@ -187,14 +246,29 @@ const Homepage = (props) => {
           </ResponsiveContainer>
         </div>
         <div className="performance">
-          <div className="objective"></div>
+          <div className="objective">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart
+                width={200}
+                height={60}
+                data={objective}
+                margin={{
+                  top: 5,
+                  right: 0,
+                  left: 0,
+                  bottom: 5,
+                }}
+              >
+                <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
           <div className="radar">
             <ResponsiveContainer width="100%" height="100%">
-              <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radar}>
-                <PolarGrid />
-                <PolarAngleAxis dataKey="subject" />
-                <PolarRadiusAxis />
-                <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+              <RadarChart cx="50%" cy="50%" outerRadius="60%" data={radar}>
+                <PolarGrid polarRadius={[10, 20, 40, 60, 90]} />
+                <PolarAngleAxis dataKey="subject" stroke="#ffffff" />
+                <Radar dataKey="A" stroke="#FF0101B2" fill="#FF0101B2" />
               </RadarChart>
             </ResponsiveContainer>
           </div>
