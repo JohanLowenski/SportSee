@@ -84,7 +84,6 @@
 .homepage .homepage__section .performance .objective,
 .homepage .homepage__section .performance .radar,
 .homepage .homepage__section .performance .kpi {
-  background-color: #fbfbfb;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   width: 258px;
@@ -93,4 +92,7 @@
 }
 .homepage .homepage__section .performance .radar {
   background-color: #282d30;
+}
+.homepage .homepage__section .performance .kpi {
+  background-color: #fbfbfb;
 }

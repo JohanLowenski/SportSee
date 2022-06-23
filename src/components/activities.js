@@ -1,4 +1,4 @@
-import React from "react";
+// import PropTypes from "prop-types";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 const Activities = (props) => {
   const data = [
@@ -93,6 +93,12 @@ const Activities = (props) => {
           axisLine={false}
           tickLine={false}
           dx={48}
+        />
+        <YAxis
+          //  yAxisId="cal"
+          //   dataKey="calories"
+          domain={[0, "dataMax + 50"]}
+          hide={true}
         />
         <Tooltip />
         <Legend verticalAlign="top" />

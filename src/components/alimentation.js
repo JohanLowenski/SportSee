@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import Calories from "../assets/calories-icon.png";
 import Protein from "../assets/protein-icon.png";
 import Carbohydrate from "../assets/carbs-icon.png";

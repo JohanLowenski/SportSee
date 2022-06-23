@@ -83,7 +83,6 @@
       .objective,
       .radar,
       .kpi {
-        background-color: #fbfbfb;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         width: 258px;
@@ -92,6 +91,12 @@
       }
       .radar {
         background-color: #282d30;
+      }
+      // .objective {
+      //   background-color: yellowgreen;
+      // }
+      .kpi {
+        background-color: #fbfbfb;
       }
     }
   }

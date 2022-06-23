@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
 
 const Spider = (props) => {
