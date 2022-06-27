@@ -8,9 +8,9 @@ import Bike from "../../assets/bike.png";
 import Bodybuilding from "../../assets/bodybuilding.png";
 import Alimentation from "../alimentation";
 import Activities from "../activities";
-import Score from "../score";
+import Moyenne from "../moyenne";
 import Radar from "../radar";
-
+import Score from "../score";
 const Homepage = (props) => {
   return (
     <div className="homepage">
@@ -44,12 +44,14 @@ const Homepage = (props) => {
         </div>
         <div className="performance">
           <div className="objective">
-            <Score />
+            <Moyenne />
           </div>
           <div className="radar">
             <Radar />
           </div>
-          <div className="kpi"></div>
+          <div className="kpi">
+            <Score />
+          </div>
         </div>
       </section>
       <Alimentation />

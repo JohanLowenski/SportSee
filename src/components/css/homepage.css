@@ -93,6 +93,9 @@
 .homepage .homepage__section .performance .radar {
   background-color: #282d30;
 }
+.homepage .homepage__section .performance .objective {
+  background-color: #ff0101;
+}
 .homepage .homepage__section .performance .kpi {
   background-color: #fbfbfb;
 }
