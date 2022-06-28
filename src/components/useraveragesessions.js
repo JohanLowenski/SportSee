@@ -4,7 +4,7 @@ import "./css/moyenne.css";
 import React, { useState } from "react";
 
 const Moyenne = () => {
-  const score = [
+  const USER_AVERAGE_SESSIONS = [
     {
       day: 1,
       sessionLength: 30,
@@ -99,7 +99,7 @@ const Moyenne = () => {
   return (
     <ResponsiveContainer>
       <LineChart
-        data={score}
+        data={USER_AVERAGE_SESSIONS}
         margin={{ left: 0, right: 0, bottom: 0 }}
         onMouseLeave={ResetPosition}
         onMouseMove={SetPosition}

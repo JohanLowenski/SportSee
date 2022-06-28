@@ -38,3 +38,6 @@
   left: 32px;
   right: 32px;
 }
+.section_alimentation .section_text {
+  position: absolute;
+}

@@ -1,55 +1,63 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
 
 const Spider = (props) => {
-  const radar = [
-    {
-      subject: "Intensité",
-      A: 120,
-      B: 110,
-      fullMark: 150,
+  const USER_PERFORMANCE = {
+    kind: {
+      1: "cardio",
+      2: "energy",
+      3: "endurance",
+      4: "strength",
+      5: "speed",
+      6: "intensity",
     },
-    {
-      subject: "Vitesse",
-      A: 98,
-      B: 130,
-      fullMark: 150,
-    },
-    {
-      subject: "Force",
-      A: 86,
-      B: 130,
-      fullMark: 150,
-    },
-    {
-      subject: "Endurance",
-      A: 99,
-      B: 100,
-      fullMark: 150,
-    },
-    {
-      subject: "Energie",
-      A: 85,
-      B: 90,
-      fullMark: 150,
-    },
-    {
-      subject: "Cardio",
-      A: 65,
-      B: 85,
-      fullMark: 150,
-    },
-  ];
+    data: [
+      {
+        value: 80,
+        kind: 1,
+      },
+      {
+        value: 120,
+        kind: 2,
+      },
+      {
+        value: 140,
+        kind: 3,
+      },
+      {
+        value: 50,
+        kind: 4,
+      },
+      {
+        value: 200,
+        kind: 5,
+      },
+      {
+        value: 90,
+        kind: 6,
+      },
+    ],
+  };
+  const renderCustomAxisTick = ({ x, y, payload }) => {
+    console.log(payload);
+    const kind = payload.kind;
+    return (
+      <text x={x - 5} y={y + 15}>
+        {kind}
+      </text>
+    );
+  };
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <RadarChart cx="50%" cy="50%" outerRadius="60%" data={radar}>
+      <RadarChart cx="50%" cy="50%" outerRadius="60%" data={USER_PERFORMANCE.data}>
         <PolarGrid polarRadius={[10, 20, 40, 60]} radialLines={false} />
         <PolarAngleAxis
-          dataKey="subject"
+          dataKey="kind"
           stroke="#ffffff"
           tickLine={false}
           dy={4}
-          tick={{ fontSize: 12, fontWeight: 500 }}
+          tick={renderCustomAxisTick}
+          // tick={{ fontSize: 12, fontWeight: 500 }}
         />
         <Radar dataKey="A" fillOpacity={0.7} stroke="transparent" fill="#ff0101" />
       </RadarChart>

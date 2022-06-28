@@ -7,8 +7,8 @@ import Swim from "../../assets/swim.png";
 import Bike from "../../assets/bike.png";
 import Bodybuilding from "../../assets/bodybuilding.png";
 import Alimentation from "../alimentation";
-import Activities from "../activities";
-import Moyenne from "../moyenne";
+import Activities from "../useractivity";
+import Moyenne from "../useraveragesessions";
 import Radar from "../radar";
 import Score from "../score";
 const Homepage = (props) => {
