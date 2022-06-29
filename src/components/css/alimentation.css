@@ -40,4 +40,15 @@
 }
 .section_alimentation .section_text {
   position: absolute;
+  left: 120px;
+  top: 15px;
+}
+.section_alimentation .section_text .section_text-number {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: -12px;
+}
+.section_alimentation .section_text .section_text-title {
+  color: #9b9eac;
+  font-size: 14px;
 }
