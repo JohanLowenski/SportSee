@@ -6,12 +6,13 @@ import Zen from "../../assets/zen.png";
 import Swim from "../../assets/swim.png";
 import Bike from "../../assets/bike.png";
 import Bodybuilding from "../../assets/bodybuilding.png";
+import User from "../user";
 import Alimentation from "../alimentation";
 import Activities from "../useractivity";
 import Moyenne from "../useraveragesessions";
 import Radar from "../radar";
 import Score from "../score";
-const Homepage = (props) => {
+const Homepage = () => {
   return (
     <div className="homepage">
       <div className="header">
@@ -36,8 +37,7 @@ const Homepage = (props) => {
       </aside>
       <section className="homepage__section">
         <div className="homepage__section-item">
-          <h1>Bonjour ...</h1>
-          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+          <User />
         </div>
         <div className="activities">
           <Activities />

@@ -62,10 +62,10 @@ const Activities = () => {
         <text x={60} y={31} fontSize={15} fontWeight={500}>
           Activité quotidienne
         </text>
-        <text className="cal" x={680} y={31} fill="#9B9EAC">
-          Calories (kcal)
+        <text className="cal" x={620} y={31} fill="#9B9EAC">
+          Calories brûlées (kCal)
         </text>
-        <text className="kilo" x={500} y={31} fill="#9B9EAC">
+        <text className="kilo" x={460} y={31} fill="#9B9EAC">
           Poids (kg)
         </text>
         <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#dedede" />
@@ -80,7 +80,7 @@ const Activities = () => {
         <YAxis yAxisId="kg" orientation="right" stroke="#9B9EAC" axisLine={false} tickLine={false} dx={20} />
         <YAxis yAxisId="cal" hide={true} />
         <Tooltip />
-        <Legend verticalAlign="top" />
+        <Legend />
         <Bar yAxisId="kg" dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]} />
         <Bar yAxisId="cal" dataKey="calories" fill="#E60000" barSize={7} radius={[50, 50, 0, 0]} />
       </BarChart>
