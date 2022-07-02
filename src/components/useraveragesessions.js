@@ -2,38 +2,8 @@
 import { Line, LineChart, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import "./css/moyenne.css";
 import React, { useState } from "react";
-
+import { USER_AVERAGE_SESSIONS } from "../info";
 const Moyenne = () => {
-  const USER_AVERAGE_SESSIONS = [
-    {
-      day: 1,
-      sessionLength: 30,
-    },
-    {
-      day: 2,
-      sessionLength: 40,
-    },
-    {
-      day: 3,
-      sessionLength: 50,
-    },
-    {
-      day: 4,
-      sessionLength: 30,
-    },
-    {
-      day: 5,
-      sessionLength: 30,
-    },
-    {
-      day: 6,
-      sessionLength: 50,
-    },
-    {
-      day: 7,
-      sessionLength: 50,
-    },
-  ];
   const [xAxis, setXAxis] = useState(7);
   const SetPosition = (e) => {
     if (e.activeLabel) {
@@ -76,7 +46,6 @@ const Moyenne = () => {
       default:
         textX = "";
     }
-
     return (
       <text x={x - 5} y={y} fill="rgba(255,255,255, 0.6)">
         <tspan dy="0em">{textX}</tspan>
@@ -92,14 +61,12 @@ const Moyenne = () => {
         >{`${payload[0].value} min`}</p>
       );
     }
-
     return null;
   };
-
   return (
     <ResponsiveContainer>
       <LineChart
-        data={USER_AVERAGE_SESSIONS}
+        data={USER_AVERAGE_SESSIONS[1].sessions}
         margin={{ left: 0, right: 0, bottom: 0 }}
         onMouseLeave={ResetPosition}
         onMouseMove={SetPosition}

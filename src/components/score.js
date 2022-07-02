@@ -28,7 +28,7 @@ export default class Example extends PureComponent {
             dataKey="value"
           >
             {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill="#ff0101" cornerRadius="50%" />
+              <Cell key={`cell-${index}`} fill="#FF0000" cornerRadius="50%" />
             ))}
           </Pie>
         </PieChart>

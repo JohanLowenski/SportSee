@@ -1,60 +1,42 @@
 import React from "react";
 import "../css/homepage.css";
-// import { USER_MAIN_DATA,USER_ACTIVITY,USER_AVERAGE_SESSIONS,USER_PERFORMANCE } from "../../info";
-import Logo from "../../assets/logo.png";
-import Zen from "../../assets/zen.png";
-import Swim from "../../assets/swim.png";
-import Bike from "../../assets/bike.png";
-import Bodybuilding from "../../assets/bodybuilding.png";
-import User from "../user";
-import Alimentation from "../alimentation";
-import Activities from "../useractivity";
-import Moyenne from "../useraveragesessions";
-import Radar from "../radar";
+import Header from "../header";
+import Aside from "../aside";
+import User from "../usermaindata";
+import Activity from "../useractivity";
+import Averagesessions from "../useraveragesessions";
+import Performance from "../userperformance";
 import Score from "../score";
+import Mainscore from "../usermainscore";
 const Homepage = () => {
   return (
     <div className="homepage">
       <div className="header">
-        <header className="header__logo">
-          <img className="logo" src={Logo} alt="Logo" />
-          <ul className="header__nav">
-            <li className="header__nav-item">Accueil</li>
-            <li className="header__nav-item">Profil</li>
-            <li className="header__nav-item">Réglage</li>
-            <li className="header__nav-item-end">Communauté</li>
-          </ul>
-        </header>
+        <Header />
       </div>
       <aside className="header__aside">
-        <div className="header__aside-item">
-          <img className="header__aside-img" src={Zen} alt="Logo" />
-          <img className="header__aside-img" src={Swim} alt="Logo" />
-          <img className="header__aside-img" src={Bike} alt="Logo" />
-          <img className="header__aside-img" src={Bodybuilding} alt="Logo" />
-        </div>
-        <p className="header__aside-text">Copyright, SportSee 2022</p>
+        <Aside />
       </aside>
       <section className="homepage__section">
         <div className="homepage__section-item">
           <User />
         </div>
         <div className="activities">
-          <Activities />
+          <Activity />
         </div>
         <div className="performance">
           <div className="objective">
-            <Moyenne />
+            <Averagesessions />
           </div>
           <div className="radar">
-            <Radar />
+            <Performance />
           </div>
           <div className="kpi">
             <Score />
           </div>
         </div>
       </section>
-      <Alimentation />
+      <Mainscore />
     </div>
   );
 };
