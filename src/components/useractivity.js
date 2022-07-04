@@ -4,7 +4,7 @@ import { USER_ACTIVITY } from "../info";
 import "./css/useractivity.css";
 const Activities = () => {
   const renderCustomAxisTick = ({ x, y, payload }) => {
-    const dayX = payload.index + 1;
+    const dayX = new Date(payload.value).getDate();
     return (
       <Text x={x - 5} y={y + 15} fill="#9B9EAC">
         {dayX}
