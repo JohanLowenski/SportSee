@@ -47,7 +47,7 @@ const Moyenne = () => {
         textX = "";
     }
     return (
-      <text x={x - 5} y={y} fill="rgba(255,255,255, 0.6)">
+      <text x={x - 5} y={y + 15} fill="rgba(255,255,255, 0.6)">
         <tspan dy="0em">{textX}</tspan>
       </text>
     );
@@ -66,8 +66,8 @@ const Moyenne = () => {
   return (
     <ResponsiveContainer>
       <LineChart
-        data={USER_AVERAGE_SESSIONS[1].sessions}
-        margin={{ left: 0, right: 0, bottom: 0 }}
+        data={USER_AVERAGE_SESSIONS[0].sessions}
+        margin={{ left: 0, right: 0, bottom: 15 }}
         onMouseLeave={ResetPosition}
         onMouseMove={SetPosition}
       >
@@ -94,8 +94,14 @@ const Moyenne = () => {
           dot={false}
           activeDot={{ stroke: "rgba(255, 255, 255, 0.5)", strokeWidth: 10, fill: "#fff", r: 5 }}
         />
-        <Tooltip content={<CustomTooltip />} />
-        <ReferenceArea x1={xAxis} x2={7} y1={-10.3} fill="#000000" radius={5} ifOverflow="extendDomain" />
+        <Tooltip
+          content={<CustomTooltip />}
+          cursor={{
+            stroke: "rgba(0, 0, 0, 0.1)",
+            strokeWidth: 32,
+          }}
+        />
+        <ReferenceArea x1={xAxis} x2={7} y1={-20} radius={5} ifOverflow="extendDomain" />
       </LineChart>
     </ResponsiveContainer>
   );
