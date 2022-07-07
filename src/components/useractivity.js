@@ -1,4 +1,4 @@
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Text } from "recharts";
 import { USER_ACTIVITY } from "../info";
 import "./css/useractivity.css";
@@ -10,6 +10,17 @@ const Activities = () => {
         {dayX}
       </Text>
     );
+  };
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload) {
+      return (
+        <div className="label" style={{ backgroundColor: "#E60000", color: "#fff", padding: 5, fontSize: 10 }}>
+          <p>{`${payload[0].value} kg`}</p>
+          <p>{`${payload[1].value} kCal`}</p>
+        </div>
+      );
+    }
+    return null;
   };
   return (
     <div className="activities">
@@ -47,9 +58,9 @@ const Activities = () => {
           <YAxis yAxisId="kg" orientation="right" stroke="#9B9EAC" axisLine={false} tickLine={false} dx={20} />
           <YAxis yAxisId="cal" hide={true} />
           <Tooltip
-            width="50%"
+            content={<CustomTooltip />}
             cursor={{
-              fill: "rgba(0, 0, 0, 0.1)",
+              fill: " #C4C4C480",
             }}
           />
           <Bar yAxisId="kg" dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]} />
@@ -61,3 +72,11 @@ const Activities = () => {
 };
 
 export default Activities;
+
+const ActivitiesProp = {
+  dayX: PropTypes.number,
+  renderCustomAxisTick: PropTypes.func,
+  USER_ACTIVITY: PropTypes.array,
+};
+
+Activities.propTypes = ActivitiesProp;

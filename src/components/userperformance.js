@@ -1,4 +1,4 @@
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
 import { USER_PERFORMANCE } from "../info";
 const Spider = () => {
@@ -57,3 +57,10 @@ const Spider = () => {
 };
 
 export default Spider;
+
+const SpiderProp = {
+  data: PropTypes.array,
+  kind: PropTypes.number,
+  value: PropTypes.number,
+};
+Spider.propTypes = SpiderProp;

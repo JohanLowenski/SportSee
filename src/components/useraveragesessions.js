@@ -1,4 +1,4 @@
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Line, LineChart, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import "./css/moyenne.css";
 import React, { useState } from "react";
@@ -97,14 +97,20 @@ const Moyenne = () => {
         <Tooltip
           content={<CustomTooltip />}
           cursor={{
-            stroke: "rgba(0, 0, 0, 0.1)",
-            strokeWidth: 32,
+            stroke: "rgba(255, 0, 0, 0.5)",
+            strokeWidth: 0,
           }}
         />
-        <ReferenceArea x1={xAxis} x2={7} y1={-20} radius={5} ifOverflow="extendDomain" />
+        <ReferenceArea x1={xAxis} x2={7} y1={-20} fill="#f00" opacity={1} radius={5} ifOverflow="extendDomain" />
       </LineChart>
     </ResponsiveContainer>
   );
 };
 
 export default Moyenne;
+
+const MoyennePropTypes = {
+  // userId: PropTypes.number.isRequired,
+  // sessions: PropTypes.array.isRequired,
+};
+Moyenne.propTypes = MoyennePropTypes;
