@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./css/user.css";
-import { USER_MAIN_DATA } from "../info";
+// import { USER_MAIN_DATA } from "../info";
 import { getUserData } from "./service/dataApi";
-import PropTypes from "prop-types";
-const User = (props) => {
-  const [data, setData] = useState(USER_MAIN_DATA[0]);
+const UserMainData = () => {
+  const [data, setData] = useState(null);
   useEffect(() => {
-    getUserData(12)
+    getUserData(process.env.REACT_APP_USER_ID)
       .then((res) => {
         setData(res.data);
       })
@@ -14,17 +13,14 @@ const User = (props) => {
   }, []);
   return (
     <div>
-      <h1>
-        Bonjour<span>{data.userInfos.firstName}</span>
-      </h1>
+      {data && (
+        <h1>
+          Bonjour<span>{data.userInfos.firstName}</span>
+        </h1>
+      )}
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
     </div>
   );
 };
 
-export default User;
-
-const UserProp = {
-  userInfos: PropTypes.object,
-};
-User.propTypes = UserProp;
+export default UserMainData;

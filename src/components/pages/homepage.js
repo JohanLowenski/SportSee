@@ -2,12 +2,12 @@ import React from "react";
 import "../css/homepage.css";
 import Header from "../header";
 import Aside from "../aside";
-import User from "../usermaindata";
+import UserMainData from "../UserMainData";
 import Activity from "../useractivity";
-import Averagesessions from "../useraveragesessions";
-import Performance from "../userperformance";
-import Score from "../score";
-import Mainscore from "../usermainscore";
+import UserAverageSessions from "../UserAverageSessions";
+import UserPerformance from "../UserPerformance";
+import Score from "../Score";
+import UserMainScore from "../UserMainScore";
 const Homepage = () => {
   return (
     <div className="homepage">
@@ -19,24 +19,24 @@ const Homepage = () => {
       </aside>
       <section className="homepage__section">
         <div className="homepage__section-item">
-          <User />
+          <UserMainData />
         </div>
         <div className="activities">
           <Activity />
         </div>
         <div className="performance">
           <div className="objective">
-            <Averagesessions />
+            <UserAverageSessions />
           </div>
           <div className="radar">
-            <Performance />
+            <UserPerformance />
           </div>
           <div className="kpi">
             <Score />
           </div>
         </div>
       </section>
-      <Mainscore />
+      <UserMainScore />
     </div>
   );
 };

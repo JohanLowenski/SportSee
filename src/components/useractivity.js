@@ -1,8 +1,17 @@
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Text } from "recharts";
-import { USER_ACTIVITY } from "../info";
+// import { USER_ACTIVITY } from "../info";
 import "./css/useractivity.css";
-const Activities = () => {
+import { getUserActivity } from "./service/dataApi";
+const UserActivity = () => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    getUserActivity(process.env.REACT_APP_USER_ID)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {});
+  }, []);
   const renderCustomAxisTick = ({ x, y, payload }) => {
     const dayX = new Date(payload.value).getDate();
     return (
@@ -35,48 +44,42 @@ const Activities = () => {
           </div>
         </div>
       </div>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          data={USER_ACTIVITY[0].sessions}
-          margin={{
-            top: 60,
-            right: 48,
-            left: 60,
-            bottom: 45,
-          }}
-          barGap={8}
-        >
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#dedede" />
-          <XAxis
-            dataKey="day"
-            dy={5}
-            tickLine={false}
-            tick={renderCustomAxisTick}
-            padding={{ left: -46, right: -46 }}
-            stroke="#9B9EAC"
-          />
-          <YAxis yAxisId="kg" orientation="right" stroke="#9B9EAC" axisLine={false} tickLine={false} dx={20} />
-          <YAxis yAxisId="cal" hide={true} />
-          <Tooltip
-            content={<CustomTooltip />}
-            cursor={{
-              fill: " #C4C4C480",
+      {data && (
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            data={data.sessions}
+            margin={{
+              top: 60,
+              right: 48,
+              left: 60,
+              bottom: 45,
             }}
-          />
-          <Bar yAxisId="kg" dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]} />
-          <Bar yAxisId="cal" dataKey="calories" fill="#FF0000" barSize={7} radius={[50, 50, 0, 0]} />
-        </BarChart>
-      </ResponsiveContainer>
+            barGap={8}
+          >
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#dedede" />
+            <XAxis
+              dataKey="day"
+              dy={5}
+              tickLine={false}
+              tick={renderCustomAxisTick}
+              padding={{ left: -46, right: -46 }}
+              stroke="#9B9EAC"
+            />
+            <YAxis yAxisId="kg" orientation="right" stroke="#9B9EAC" axisLine={false} tickLine={false} dx={20} />
+            <YAxis yAxisId="cal" hide={true} />
+            <Tooltip
+              content={<CustomTooltip />}
+              cursor={{
+                fill: " #C4C4C480",
+              }}
+            />
+            <Bar yAxisId="kg" dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]} />
+            <Bar yAxisId="cal" dataKey="calories" fill="#FF0000" barSize={7} radius={[50, 50, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      )}
     </div>
   );
 };
 
-export default Activities;
-
-const ActivitiesProp = {
-  dayX: PropTypes.number,
-  renderCustomAxisTick: PropTypes.func,
-  USER_ACTIVITY: PropTypes.array,
-};
-
-Activities.propTypes = ActivitiesProp;
+export default UserActivity;

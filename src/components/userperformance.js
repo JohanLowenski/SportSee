@@ -1,7 +1,16 @@
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
-import { USER_PERFORMANCE } from "../info";
-const Spider = () => {
+// import { USER_PERFORMANCE } from "../info";
+import { getUserPerformance } from "./service/dataApi";
+const UserPerformance = () => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    getUserPerformance(process.env.REACT_APP_USER_ID)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {});
+  }, []);
   const RADIAN = Math.PI / 180;
   const renderCustomAxisTick = ({ cx, cy, payload }) => {
     const radius = 100;
@@ -46,21 +55,18 @@ const Spider = () => {
     );
   };
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <RadarChart cx="50%" cy="50%" outerRadius="60%" data={USER_PERFORMANCE[0].data}>
-        <PolarGrid polarRadius={[10, 20, 40, 60]} radialLines={false} />
-        <PolarAngleAxis dataKey="kind" stroke="#ffffff" tickLine={false} dy={4} tick={renderCustomAxisTick} />
-        <Radar dataKey="value" fillOpacity={0.7} stroke="transparent" fill="#FF0000" />
-      </RadarChart>
-    </ResponsiveContainer>
+    <>
+      {data && (
+        <ResponsiveContainer width="100%" height="100%">
+          <RadarChart cx="50%" cy="50%" outerRadius="60%" data={data.data}>
+            <PolarGrid polarRadius={[10, 20, 40, 60]} radialLines={false} />
+            <PolarAngleAxis dataKey="kind" stroke="#ffffff" tickLine={false} dy={4} tick={renderCustomAxisTick} />
+            <Radar dataKey="value" fillOpacity={0.7} stroke="transparent" fill="#FF0000" />
+          </RadarChart>
+        </ResponsiveContainer>
+      )}
+    </>
   );
 };
 
-export default Spider;
-
-const SpiderProp = {
-  data: PropTypes.array,
-  kind: PropTypes.number,
-  value: PropTypes.number,
-};
-Spider.propTypes = SpiderProp;
+export default UserPerformance;

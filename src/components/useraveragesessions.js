@@ -1,9 +1,17 @@
-import PropTypes from "prop-types";
 import { Line, LineChart, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import "./css/moyenne.css";
-import React, { useState } from "react";
-import { USER_AVERAGE_SESSIONS } from "../info";
-const Moyenne = () => {
+import React, { useState, useEffect } from "react";
+// import { USER_AVERAGE_SESSIONS } from "../info";
+import { getUserAverageSessions } from "./service/dataApi";
+const UserAverageSessions = () => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    getUserAverageSessions(process.env.REACT_APP_USER_ID)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {});
+  }, []);
   const [xAxis, setXAxis] = useState(7);
   const SetPosition = (e) => {
     if (e.activeLabel) {
@@ -64,53 +72,51 @@ const Moyenne = () => {
     return null;
   };
   return (
-    <ResponsiveContainer>
-      <LineChart
-        data={USER_AVERAGE_SESSIONS[0].sessions}
-        margin={{ left: 0, right: 0, bottom: 15 }}
-        onMouseLeave={ResetPosition}
-        onMouseMove={SetPosition}
-      >
-        <text x="30" y="30" dominantBaseline="middle" fontSize="16" fontWeight="0" fill="rgba(255,255,255, 0.6)">
-          Durée moyenne des
-        </text>
-        <text x="30" y="55" dominantBaseline="middle" fontSize="16" fontWeight="0" fill="rgba(255,255,255, 0.6)">
-          sessions
-        </text>
-        <XAxis
-          dataKey="day"
-          interval={0}
-          tick={renderCustomAxisTick}
-          tickLine={false}
-          axisLine={false}
-          allowDataOverflow={true}
-        />
-        <YAxis hide domain={[0, "dataMax + 30"]} />
-        <Line
-          dataKey="sessionLength"
-          type="monotone"
-          stroke="rgba(255, 255, 255, 0.6)"
-          strokeWidth={2}
-          dot={false}
-          activeDot={{ stroke: "rgba(255, 255, 255, 0.5)", strokeWidth: 10, fill: "#fff", r: 5 }}
-        />
-        <Tooltip
-          content={<CustomTooltip />}
-          cursor={{
-            stroke: "rgba(255, 0, 0, 0.5)",
-            strokeWidth: 0,
-          }}
-        />
-        <ReferenceArea x1={xAxis} x2={7} y1={-20} fill="#f00" opacity={1} radius={5} ifOverflow="extendDomain" />
-      </LineChart>
-    </ResponsiveContainer>
+    <>
+      {data && (
+        <ResponsiveContainer>
+          <LineChart
+            data={data.sessions}
+            margin={{ left: 0, right: 0, bottom: 15 }}
+            onMouseLeave={ResetPosition}
+            onMouseMove={SetPosition}
+          >
+            <text x="30" y="30" dominantBaseline="middle" fontSize="16" fontWeight="0" fill="rgba(255,255,255, 0.6)">
+              Durée moyenne des
+            </text>
+            <text x="30" y="55" dominantBaseline="middle" fontSize="16" fontWeight="0" fill="rgba(255,255,255, 0.6)">
+              sessions
+            </text>
+            <XAxis
+              dataKey="day"
+              interval={0}
+              tick={renderCustomAxisTick}
+              tickLine={false}
+              axisLine={false}
+              allowDataOverflow={true}
+            />
+            <YAxis hide domain={[0, "dataMax + 30"]} />
+            <Line
+              dataKey="sessionLength"
+              type="monotone"
+              stroke="rgba(255, 255, 255, 0.6)"
+              strokeWidth={2}
+              dot={false}
+              activeDot={{ stroke: "rgba(255, 255, 255, 0.5)", strokeWidth: 10, fill: "#fff", r: 5 }}
+            />
+            <Tooltip
+              content={<CustomTooltip />}
+              cursor={{
+                stroke: "rgba(255, 0, 0, 0.5)",
+                strokeWidth: 0,
+              }}
+            />
+            <ReferenceArea x1={xAxis} x2={7} y1={-20} fill="#000" opacity={0.5} radius={5} ifOverflow="extendDomain" />
+          </LineChart>
+        </ResponsiveContainer>
+      )}
+    </>
   );
 };
 
-export default Moyenne;
-
-const MoyennePropTypes = {
-  // userId: PropTypes.number.isRequired,
-  // sessions: PropTypes.array.isRequired,
-};
-Moyenne.propTypes = MoyennePropTypes;
+export default UserAverageSessions;
