@@ -2,6 +2,26 @@ import React, { useEffect, useState } from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
 // import { USER_PERFORMANCE } from "../info";
 import { getUserPerformance } from "./service/dataApi";
+/**
+ * I'm using the RadarChart component from the react-chartjs-2 library to display a radar chart.
+ *
+ * I'm using the PolarAngleAxis component to display the labels on the chart.
+ *
+ * I'm using the renderCustomAxisTick function to display the labels on the chart.
+ *
+ * I'm using the PolarGrid component to display the grid on the chart.
+ *
+ * I'm using the Radar component to display the data on the chart.
+ *
+ * I'm using the ResponsiveContainer component to make the chart responsive.
+ *
+ * I'm using the useEffect hook to fetch the data from the API.
+ *
+ * I'm using the useState hook to store the data in the state.
+ *
+ * I'm using the getUserPerformance function to fetch the data from the API.
+ *
+ */
 const UserPerformance = () => {
   const [data, setData] = useState(null);
   useEffect(() => {

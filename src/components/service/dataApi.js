@@ -1,5 +1,10 @@
 import axios from "axios";
 
+/**
+ * It's a function that returns a promise that resolves to the data returned from the axios request.
+ * @param id - user id
+ * @returns An object with the following properties:
+ */
 export const getUserData = (id) => {
   return new Promise((resolve, reject) => {
     axios

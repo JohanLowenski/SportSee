@@ -3,6 +3,9 @@ import "./css/moyenne.css";
 import React, { useState, useEffect } from "react";
 // import { USER_AVERAGE_SESSIONS } from "../info";
 import { getUserAverageSessions } from "./service/dataApi";
+/**
+ * @returns An array of objects.
+ */
 const UserAverageSessions = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
@@ -23,6 +26,9 @@ const UserAverageSessions = () => {
   const ResetPosition = (e) => {
     setXAxis(7);
   };
+  /**
+   * It renders the custom axis tick.
+   */
   const renderCustomAxisTick = ({ x, y, payload }) => {
     let textX = "";
 
@@ -60,6 +66,10 @@ const UserAverageSessions = () => {
       </text>
     );
   };
+  /**
+   * If the tooltip is active and there is a payload, return a paragraph with the value of the payload
+   * @returns The CustomTooltip component is being returned.
+   */
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (

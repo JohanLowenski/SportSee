@@ -3,6 +3,11 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 // import { USER_ACTIVITY } from "../info";
 import "./css/useractivity.css";
 import { getUserActivity } from "./service/dataApi";
+/**
+ * I'm using react-chartjs-2 to render a bar chart. I'm using a custom tooltip to display the values of
+ * the bars. I'm using a custom axis tick to display the date.
+ * @returns An array of objects.
+ */
 const UserActivity = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
