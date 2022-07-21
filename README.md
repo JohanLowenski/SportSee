@@ -1,4 +1,4 @@
-# SportSee - **_Développez un tableau de bord d'analytics avec React_** du parcours **Développeur Front-end React Js** d'_OpenClassrooms_.
+# SportSee - **_Développez un tableau de bord d'analytics avec React_** du parcours _.
 
 ## Installation (_French_)
 
