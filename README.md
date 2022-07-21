@@ -42,7 +42,7 @@ Le _front-end_ est alors consultable à l'URL `http://localhost:3001`.
 
 - l'API de _SportSee_ fournit des données pour les utilisateurs de l'id 12 et 18.
 
-#################################################################################################################
+
 
 ## Installation (_English_)
 
