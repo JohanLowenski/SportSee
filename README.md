@@ -12,7 +12,7 @@
 
 Cloner le repo du _back-end_ de _SportSee_ :
 
-`git clone https://github.com/logic-fabric/sportsee-api.git`
+`git clone https://github.com/AlgerJohan/P9-front-end-dashboard`
 
 En se plaçant dans ce repo du _back-end_, installer ses dépendances :
 
@@ -54,7 +54,7 @@ Le _front-end_ est alors consultable à l'URL `http://localhost:3001`.
 
 Clone the repository of _SportSee_ back-end:
 
-`git clone https://github.com/logic-fabric/sportsee-api.git`
+`git clone https://github.com/AlgerJohan/P9-front-end-dashboard`
 
 Inside this back-end repository, install dependencies:
 
