@@ -21,10 +21,13 @@ const Cards = () => {
               element[1] = (element[1] / 1000).toFixed(3);
               break;
             case "proteinCount":
-              element.push("protei");
+              element.push("Proteines");
               break;
             case "carbohydrateCount":
-              element.push("carbohydra");
+              element.push("Glucides");
+              break;
+            case "lipidCount":
+              element.push("Lipides");
               break;
             default:
           }
