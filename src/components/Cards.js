@@ -28,7 +28,7 @@ const Cards = () => {
       {data && (
         <div className="card_contain">
           {data.map((item, index) => (
-            <div id={item[0].slice(0, -5)} className="margin">
+            <div key={index} id={item[0].slice(0, -5)} className="margin">
               <img className="section_img" src={DataCard[item[0]][2]} alt={item[0].slice(0, -5)} />
               <div className="section_text">
                 <p className="section_text-number">
