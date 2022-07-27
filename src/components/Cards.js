@@ -7,12 +7,19 @@ import { getUserData } from "./service/dataApi";
 import React, { useEffect, useState } from "react";
 import "./css/alimentation.css";
 
-const Cards = (props) => {
+const DataCard = {
+  calorieCount: ["Calories", "kCal", Calories],
+  proteinCount: ["Protéines", "g", Protein],
+  carbohydrateCount: ["Glucides", "g", Carbohydrate],
+  lipidCount: ["Lipides", "g", Lipid],
+};
+const Cards = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
     getUserData(process.env.REACT_APP_USER_ID)
       .then((res) => {
-        setData(res.data);
+        res.data.keyData["calorieCount"] = (res.data.keyData["calorieCount"] / 1000).toFixed(3);
+        setData(Object.entries(res.data.keyData));
       })
       .catch((err) => {});
   }, []);
@@ -20,34 +27,18 @@ const Cards = (props) => {
     <section className="section_alimentation">
       {data && (
         <div className="card_contain">
-          <div id="calories" className="margin">
-            <img className="section_img" src={Calories} alt="Logo" />
-            <div className="section_text">
-              <p className="section_text-number">{(data.keyData.calorieCount / 1000).toFixed(3)}kCal</p>
-              <p className="section_text-title">Calories</p>
+          {data.map((item, index) => (
+            <div key={index} id={item[0].slice(0, -5)} className="margin">
+              <img className="section_img" src={DataCard[item[0]][2]} alt={item[0].slice(0, -5)} />
+              <div className="section_text">
+                <p className="section_text-number">
+                  {item[1]}
+                  {DataCard[item[0]][1]}
+                </p>
+                <p className="section_text-title">{DataCard[item[0]][0]}</p>
+              </div>
             </div>
-          </div>
-          <div id="protein" className="margin">
-            <img className="section_img" src={Protein} alt="Logo" />
-            <div className="section_text">
-              <p className="section_text-number">{data.keyData.proteinCount}g</p>
-              <p className="section_text-title">Protéines</p>
-            </div>
-          </div>
-          <div id="carbohydrate" className="margin">
-            <img className="section_img" src={Carbohydrate} alt="Logo" />
-            <div className="section_text">
-              <p className="section_text-number">{data.keyData.carbohydrateCount}g</p>
-              <p className="section_text-title">Glucides</p>
-            </div>
-          </div>
-          <div id="lipid" className="margin">
-            <img className="section_img-end" src={Lipid} alt="Logo" />
-            <div className="section_text">
-              <p className="section_text-number">{data.keyData.lipidCount}g</p>
-              <p className="section_text-title">Lipides</p>
-            </div>
-          </div>
+          ))}
         </div>
       )}
     </section>
