@@ -4,7 +4,7 @@ import Swim from "../assets/swim.png";
 import Bike from "../assets/bike.png";
 import Bodybuilding from "../assets/bodybuilding.png";
 import "../components/css/homepage.css";
-function aside(props) {
+function aside() {
   return (
     <div>
       <div className="header__aside-item">

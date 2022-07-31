@@ -1,7 +1,7 @@
 import React from "react";
 import "../components/css/homepage.css";
 import Logo from "../assets/logo.png";
-function header(props) {
+function header() {
   return (
     <header className="header__logo">
       <img className="logo" src={Logo} alt="Logo" />
