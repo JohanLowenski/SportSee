@@ -8,6 +8,15 @@ import { getUserActivity } from "./service/dataApi";
  * the bars. I'm using a custom axis tick to display the date.
  * @returns An array of objects.
  */
+// const UserActivity = () => {
+//   const [data, setData] = useState(USER_ACTIVITY[0]);
+//   useEffect(() => {
+//     getUserActivity(12)
+//       .then((res) => {
+//         setData(res.data);
+//       })
+//       .catch((err) => {});
+//   }, []);
 const UserActivity = () => {
   const [data, setData] = useState(null);
   useEffect(() => {

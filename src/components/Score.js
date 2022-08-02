@@ -17,6 +17,15 @@ import { getUserData } from "./service/dataApi";
  * I've also tried to set the dataScore value to a static value and it
  * @returns The dataScore is returning a number.
  */
+// const Score = () => {
+//   const [dataScore, setData] = useState(USER_MAIN_DATA[0].todayScore * 100);
+//   useEffect(() => {
+//     getUserData(12)
+//       .then((res) => {
+//         setData(res.data.todayScore * 100);
+//       })
+//       .catch((err) => {});
+//   }, []);
 const Score = () => {
   const [dataScore, setData] = useState(null);
   useEffect(() => {

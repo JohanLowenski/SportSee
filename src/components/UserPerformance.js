@@ -22,6 +22,15 @@ import { getUserPerformance } from "./service/dataApi";
  * I'm using the getUserPerformance function to fetch the data from the API.
  *
  */
+// const UserPerformance = () => {
+//   const [data, setData] = useState(USER_PERFORMANCE[0]);
+//   useEffect(() => {
+//     getUserPerformance(12)
+//       .then((res) => {
+//         setData(res.data);
+//       })
+//       .catch((err) => {});
+//   }, []);
 const UserPerformance = () => {
   const [data, setData] = useState(null);
   useEffect(() => {

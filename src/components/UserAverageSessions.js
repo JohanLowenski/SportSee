@@ -6,6 +6,15 @@ import { getUserAverageSessions } from "./service/dataApi";
 /**
  * @returns An array of objects.
  */
+// const UserAverageSessions = () => {
+//   const [data, setData] = useState(USER_AVERAGE_SESSIONS[0]);
+//   useEffect(() => {
+//     getUserAverageSessions(12)
+//       .then((res) => {
+//         setData(res.data);
+//       })
+//       .catch((err) => {});
+//   }, []);
 const UserAverageSessions = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
