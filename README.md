@@ -1,3 +1,5 @@
+# SportSee - **_Développez un tableau de bord d'analytics avec React_**
+
 ## Installation (_English_)
 
 ### Prerequisites
