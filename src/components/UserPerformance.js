@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
 // import { USER_PERFORMANCE } from "../info";
-import { getUserPerformance } from "./service/dataApi";
+// import { getUserPerformance } from "./service/dataApi";
+import { getUserApiData } from "./service/dataApi";
+
 /**
  * I'm using the RadarChart component from the react-chartjs-2 library to display a radar chart.
  *
@@ -31,10 +33,20 @@ import { getUserPerformance } from "./service/dataApi";
 //       })
 //       .catch((err) => {});
 //   }, []);
+///////////////////////////////////////////////////////////////////////////////////////////
+// const UserPerformance = () => {
+//   const [data, setData] = useState(null);
+//   useEffect(() => {
+//     getUserPerformance(process.env.REACT_APP_USER_ID)
+//       .then((res) => {
+//         setData(res.data);
+//       })
+//       .catch((err) => {});
+//   }, []);
 const UserPerformance = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    getUserPerformance(process.env.REACT_APP_USER_ID)
+    getUserApiData(process.env.REACT_APP_USER_ID, "getUserPerformance")
       .then((res) => {
         setData(res.data);
       })

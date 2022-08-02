@@ -2,7 +2,9 @@ import { Line, LineChart, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YA
 import "./css/moyenne.css";
 import React, { useState, useEffect } from "react";
 // import { USER_AVERAGE_SESSIONS } from "../info";
-import { getUserAverageSessions } from "./service/dataApi";
+// import { getUserAverageSessions } from "./service/dataApi";
+import { getUserApiData } from "./service/dataApi";
+
 /**
  * @returns An array of objects.
  */
@@ -15,10 +17,20 @@ import { getUserAverageSessions } from "./service/dataApi";
 //       })
 //       .catch((err) => {});
 //   }, []);
+//////////////////////////////////////////////////////////////////
+// const UserAverageSessions = () => {
+//   const [data, setData] = useState(null);
+//   useEffect(() => {
+//     getUserAverageSessions(process.env.REACT_APP_USER_ID)
+//       .then((res) => {
+//         setData(res.data);
+//       })
+//       .catch((err) => {});
+//   }, []);
 const UserAverageSessions = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    getUserAverageSessions(process.env.REACT_APP_USER_ID)
+    getUserApiData(process.env.REACT_APP_USER_ID, "getUserAverageSessions")
       .then((res) => {
         setData(res.data);
       })

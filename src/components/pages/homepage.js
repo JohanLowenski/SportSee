@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/homepage.css";
 import Header from "../header";
 import Aside from "../aside";
@@ -7,8 +7,28 @@ import Activity from "../useractivity";
 import UserAverageSessions from "../UserAverageSessions";
 import UserPerformance from "../UserPerformance";
 import Score from "../Score";
-import UserMainScore from "../UserMainScore";
+import Cards from "../Cards";
+// import { getUserData } from "../service/dataApi";
+// import { ManageEndpoints } from "../service/dataApi";
+import { getUserApiData } from "../service/dataApi";
+// const Homepage = () => {
+//   const [data, setData] = useState(null);
+//   useEffect(() => {
+//     getUserData(process.env.REACT_APP_USER_ID)
+//       .then((res) => {
+//         setData(res.data);
+//       })
+//       .catch((err) => {});
+//   }, []);
 const Homepage = () => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    getUserApiData(process.env.REACT_APP_USER_ID, "getUserData")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {});
+  }, []);
   return (
     <div className="homepage">
       <div className="header">
@@ -19,7 +39,7 @@ const Homepage = () => {
       </aside>
       <section className="homepage__section">
         <div className="homepage__section-item">
-          <UserMainData />
+          <UserMainData data={data} />
         </div>
         <div className="activities">
           <Activity />
@@ -36,7 +56,7 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      <UserMainScore />
+      <Cards data={data} />
     </div>
   );
 };

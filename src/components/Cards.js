@@ -2,10 +2,9 @@ import Calories from "../assets/calories-icon.png";
 import Protein from "../assets/protein-icon.png";
 import Carbohydrate from "../assets/carbs-icon.png";
 import Lipid from "../assets/lipids-icon.png";
-// import { USER_MAIN_DATA } from "../info";
-import { getUserData } from "./service/dataApi";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./css/alimentation.css";
+import PropTypes from "prop-types";
 
 /* A constant that is an object with keys that are the same as the keys in the data object. The values
 are arrays that contain the text to be displayed in the card. */
@@ -17,21 +16,16 @@ const DataCard = {
   carbohydrateCount: ["Glucides", "g", Carbohydrate],
   lipidCount: ["Lipides", "g", Lipid],
 };
-const Cards = () => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    getUserData(process.env.REACT_APP_USER_ID)
-      .then((res) => {
-        res.data.keyData["calorieCount"] = (res.data.keyData["calorieCount"] / 1000).toFixed(3);
-        setData(Object.entries(res.data.keyData));
-      })
-      .catch((err) => {});
-  }, []);
+const Cards = (props) => {
+  if (!props.data) {
+    return <div>Loading...</div>;
+  }
+  const keyData = Object.entries(props.data.keyData);
   return (
     <section className="section_alimentation">
-      {data && (
+      {keyData && (
         <div className="card_contain">
-          {data.map((item, index) => (
+          {keyData.map((item, index) => (
             <div key={index} id={item[0].slice(0, -5)} className="margin">
               <img className="section_img" src={DataCard[item[0]][2]} alt={item[0].slice(0, -5)} />
               <div className="section_text">
@@ -50,3 +44,13 @@ const Cards = () => {
 };
 
 export default Cards;
+Cards.propTypes = {
+  data: PropTypes.shape({
+    keyData: PropTypes.shape({
+      calorieCount: PropTypes.number.isRequired,
+      carbohydrateCount: PropTypes.number.isRequired,
+      lipidCount: PropTypes.number.isRequired,
+      proteinCount: PropTypes.number.isRequired,
+    }),
+  }),
+};

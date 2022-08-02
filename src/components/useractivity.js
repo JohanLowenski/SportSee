@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Text } from "recharts";
-// import { USER_ACTIVITY } from "../info";
 import "./css/useractivity.css";
-import { getUserActivity } from "./service/dataApi";
+// import { USER_ACTIVITY } from "../info";
+// import {getUserActivity } from "../service/dataApi";
+import { getUserApiData } from "./service/dataApi";
 /**
  * I'm using react-chartjs-2 to render a bar chart. I'm using a custom tooltip to display the values of
  * the bars. I'm using a custom axis tick to display the date.
@@ -17,15 +18,26 @@ import { getUserActivity } from "./service/dataApi";
 //       })
 //       .catch((err) => {});
 //   }, []);
+///////////////////////////////////////////////////////////////////////////////////////////
+// const UserActivity = () => {
+//   const [data, setData] = useState(null);
+//   useEffect(() => {
+//     getUserActivity(process.env.REACT_APP_USER_ID)
+//       .then((res) => {
+//         setData(res.data);
+//       })
+//       .catch((err) => {});
+//   }, []);
 const UserActivity = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    getUserActivity(process.env.REACT_APP_USER_ID)
+    getUserApiData(process.env.REACT_APP_USER_ID, "getUserActivity")
       .then((res) => {
         setData(res.data);
       })
       .catch((err) => {});
   }, []);
+
   const renderCustomAxisTick = ({ x, y, payload }) => {
     const dayX = new Date(payload.value).getDate();
     return (

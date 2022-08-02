@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { RadialBarChart, RadialBar, ResponsiveContainer, Cell } from "recharts";
 // import { USER_MAIN_DATA } from "../info";
-import { getUserData } from "./service/dataApi";
+// import { getUserData } from "./service/dataApi";
+import { getUserApiData } from "./service/dataApi";
 /**
  * I'm using the useState hook to set the dataScore to null, then I'm using the useEffect hook to fetch
  * the data from an API and set the dataScore to the value I get from the API.
@@ -26,10 +27,20 @@ import { getUserData } from "./service/dataApi";
 //       })
 //       .catch((err) => {});
 //   }, []);
+///////////////////////////////////////////////////////////////////////////////////////////
+// const Score = () => {
+//   const [dataScore, setData] = useState(null);
+//   useEffect(() => {
+//     getUserData(process.env.REACT_APP_USER_ID)
+//       .then((res) => {
+//         setData(res.data.todayScore * 100);
+//       })
+//       .catch((err) => {});
+//   }, []);
 const Score = () => {
   const [dataScore, setData] = useState(null);
   useEffect(() => {
-    getUserData(process.env.REACT_APP_USER_ID)
+    getUserApiData(process.env.REACT_APP_USER_ID, "getUserData")
       .then((res) => {
         setData(res.data.todayScore * 100);
       })

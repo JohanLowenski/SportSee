@@ -7,11 +7,9 @@ import "../components/css/homepage.css";
 
 /**
  * This function returns a div that contains a div and a p element.
- * @param props - {
- * @returns A div with a div and a p inside.
+ * @returns A function that returns a div with a div and a p inside.
  */
-function aside(props) {
-
+function aside() {
   return (
     <div>
       <div className="header__aside-item">
