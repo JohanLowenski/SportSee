@@ -2,6 +2,8 @@
 
 ## Installation (_English_)
 
+### Recommended text editor: [Visual Studio Code](https://code.visualstudio.com/)
+
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/fr/): version 9.x ou supérieure
