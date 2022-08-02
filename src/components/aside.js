@@ -4,6 +4,11 @@ import Swim from "../assets/swim.png";
 import Bike from "../assets/bike.png";
 import Bodybuilding from "../assets/bodybuilding.png";
 import "../components/css/homepage.css";
+/**
+ * This function returns a div that contains a div and a p element.
+ * @param props - {
+ * @returns A div with a div and a p inside.
+ */
 function aside(props) {
   return (
     <div>

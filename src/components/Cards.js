@@ -7,6 +7,10 @@ import { getUserData } from "./service/dataApi";
 import React, { useEffect, useState } from "react";
 import "./css/alimentation.css";
 
+/* A constant that is an object with keys that are the same as the keys in the data object. The values
+are arrays that contain the text to be displayed in the card. */
+/* It's an object that has keys that are the same as the keys in the data object. The values
+are arrays that contain the text to be displayed in the card. */
 const DataCard = {
   calorieCount: ["Calories", "kCal", Calories],
   proteinCount: ["Protéines", "g", Protein],

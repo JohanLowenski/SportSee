@@ -1,6 +1,11 @@
 import React from "react";
 import "../components/css/homepage.css";
 import Logo from "../assets/logo.png";
+/**
+ * It returns a header element with a logo and a navigation bar
+ * @param props - {
+ * @returns A header component with a logo and a nav bar.
+ */
 function header(props) {
   return (
     <header className="header__logo">
