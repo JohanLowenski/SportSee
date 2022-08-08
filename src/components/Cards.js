@@ -44,6 +44,7 @@ const Cards = (props) => {
 };
 
 export default Cards;
+
 Cards.propTypes = {
   data: PropTypes.shape({
     keyData: PropTypes.shape({

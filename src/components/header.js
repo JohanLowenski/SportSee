@@ -1,12 +1,12 @@
 import React from "react";
 import "../components/css/homepage.css";
 import Logo from "../assets/logo.png";
-
+import PropTypes from "prop-types";
 /**
  * It returns a header element with a logo and a navigation bar
  * @returns A header component with a logo and a nav bar.
  */
-function header() {
+const Header = () => {
   return (
     <header className="header__logo">
       <img className="logo" src={Logo} alt="Logo" />
@@ -18,6 +18,10 @@ function header() {
       </ul>
     </header>
   );
-}
+};
 
-export default header;
+export default Header;
+
+Header.prototype = {
+  data: PropTypes.object.isRequired,
+};

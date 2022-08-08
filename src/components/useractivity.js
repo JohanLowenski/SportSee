@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Text } from "recharts";
 import "./css/useractivity.css";
 // import { USER_ACTIVITY } from "../info";
@@ -109,3 +110,17 @@ const UserActivity = () => {
 };
 
 export default UserActivity;
+
+UserActivity.propTypes = {
+  data: PropTypes.array,
+  ResponsiveContainer: PropTypes.object,
+  BarChart: PropTypes.object,
+  Bar: PropTypes.object,
+  XAxis: PropTypes.object,
+  YAxis: PropTypes.object,
+  CartesianGrid: PropTypes.object,
+  Tooltip: PropTypes.object,
+  Text: PropTypes.object,
+  renderCustomAxisTick: PropTypes.func,
+  CustomTooltip: PropTypes.func,
+};

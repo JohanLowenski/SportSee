@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { RadialBarChart, RadialBar, ResponsiveContainer, Cell } from "recharts";
 // import { USER_MAIN_DATA } from "../info";
 // import { getUserData } from "./service/dataApi";
@@ -87,3 +88,11 @@ const Score = () => {
   );
 };
 export default Score;
+
+Score.prototype = {
+  dataScore: PropTypes.number,
+  ResponsiveContainer: PropTypes.object,
+  RadialBarChart: PropTypes.object,
+  RadialBar: PropTypes.object,
+  Cell: PropTypes.object,
+};

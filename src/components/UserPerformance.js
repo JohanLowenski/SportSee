@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
 // import { USER_PERFORMANCE } from "../info";
 // import { getUserPerformance } from "./service/dataApi";
@@ -111,3 +112,13 @@ const UserPerformance = () => {
 };
 
 export default UserPerformance;
+
+UserPerformance.propTypes = {
+  data: PropTypes.array,
+  renderCustomAxisTick: PropTypes.func,
+  ResponsiveContainer: PropTypes.object,
+  RadarChart: PropTypes.object,
+  PolarGrid: PropTypes.object,
+  PolarAngleAxis: PropTypes.object,
+  Radar: PropTypes.object,
+};

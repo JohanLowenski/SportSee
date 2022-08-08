@@ -8,6 +8,7 @@ import UserAverageSessions from "../UserAverageSessions";
 import UserPerformance from "../UserPerformance";
 import Score from "../Score";
 import Cards from "../Cards";
+import PropTypes from "prop-types";
 // import { getUserData } from "../service/dataApi";
 // import { ManageEndpoints } from "../service/dataApi";
 import { getUserApiData } from "../service/dataApi";
@@ -62,3 +63,7 @@ const Homepage = () => {
 };
 
 export default Homepage;
+
+Homepage.propTypes = {
+  data: PropTypes.object,
+};

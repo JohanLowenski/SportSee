@@ -4,12 +4,13 @@ import Swim from "../assets/swim.png";
 import Bike from "../assets/bike.png";
 import Bodybuilding from "../assets/bodybuilding.png";
 import "../components/css/homepage.css";
+import PropTypes from "prop-types";
 
 /**
  * This function returns a div that contains a div and a p element.
  * @returns A function that returns a div with a div and a p inside.
  */
-function aside() {
+const Aside = () => {
   return (
     <div>
       <div className="header__aside-item">
@@ -21,6 +22,10 @@ function aside() {
       <p className="header__aside-text">Copyright, SportSee 2022</p>
     </div>
   );
-}
+};
 
-export default aside;
+export default Aside;
+
+Aside.prototype = {
+  data: PropTypes.object.isRequired,
+};

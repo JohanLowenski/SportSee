@@ -1,5 +1,6 @@
 import { Line, LineChart, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import "./css/moyenne.css";
+import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 // import { USER_AVERAGE_SESSIONS } from "../info";
 // import { getUserAverageSessions } from "./service/dataApi";
@@ -151,3 +152,12 @@ const UserAverageSessions = () => {
 };
 
 export default UserAverageSessions;
+
+UserAverageSessions.propTypes = {
+  data: PropTypes.array,
+  xAxis: PropTypes.number,
+  SetPosition: PropTypes.func,
+  ResetPosition: PropTypes.func,
+  renderCustomAxisTick: PropTypes.func,
+  CustomTooltip: PropTypes.func,
+};
